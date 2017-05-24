@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Aparcamientos en Madrid</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"> </script>
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"> </script>-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+    <link href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" rel="stylesheet">
+    <link href="aparcamientos.css" rel="stylesheet">
+    <script src="jquery-ui/jquery-ui.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script type="text/javascript" src="javascript/googleplus-api.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+    <script src="javascript/github.js" type="text/javascript"></script>
+    <script type="text/javascript" src="javascript/aparcamientos.js"></script>
+
+   </head>
+<body>
+<!--Ventana emergente-->
+<div id="dialog">
+  <form id="fguardar_cargar">
+    <label>Token:</label>
+    <input id="token" type="password" class="form-control">
+    <label>Nombre repositorio:</label>
+    <input id="nombreR" type="text" class="form-control">
+    <label>Nombre fichero:</label>
+    <input id="nombreF" type="text" class="form-control">
+    <br><input type="submit" class="btn btn-primary" value="Aceptar">
+  </form>
+  <div id="msg"></div>
+</div>
+  <div class="container header">
+    <div class="row">
+      <div class="col-md-3">
+      <a href="javascript:location.reload()"><img  id="banner" src="imagenes/aem.png"></a>
+      </div>
+      <div class="col-md-9" >
+        <h1>APARCAMIENTOS EN MADRID</h1>
+      </div>
+    </div>
+  </div>
+
+  <div id="ctabs" class="container ">
+
+    <div class="row">
+      <div class="col-md-10">
+        <ul id="tabs" class="nav nav-tabs nav-justified" data-tabs="tabs">
+          <li class="active"><a href="#home" data-toggle="tab">Principal</a></li>
+          <li><a href="#colecciones" data-toggle="tab">Colecciones</a></li>
+          <li><a href="#alojados" data-toggle="tab">Aparcados</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <input id="guardar" type="submit" class="btn btn-primary" value="Guardar">
+        <input id="cargar" type="submit" class="btn btn-primary" value="Cargar">
+      </div>
+    </div>
+  </div>
+
+  <div class="container main">
+    <div id="my-tab-content" class="tab-content">
+    <div class="tab-pane active row" id="home">
+      <div class="col-md-3">
+        <div id="get">Obtener aparcamientos</div>
+        <div id="list_home" class="list"></div>
+
+        <h4 class="title">Aparcamientos en: <span class="col_title"></span></h4>
+        <div id="coll_main" class="list2 h_coll"><ul></ul></div>
+      </div>
+
+      <div class="col-md-9" >
+        <div id="map" ></div>
+        <div id="desc" class="info">
+
+          <div id="info"></div>
+          <div id="carousel" class="carousel slide" hidden>
+            <ol id="carousel-indicators" class="carousel-indicators">
+            </ol>
+            <div id="carousel-imgs" class="carousel-inner" role="listbox" >
+            </div>
+            <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Anterior</span>
+            </a>
+            <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Siguiente</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="tab-pane row" id="colecciones">
+      <div class="col-md-3">
+        <h4 class="title">Aparcamientos</h4>
+        <div id="list_col_1" class="list"></div>
+      </div>
+      <div class="col-md-5">
+        <h4 class="title" style="margin-left:16px;">Colecciones disponibles</h4>
+
+        <form id="form" class="form">
+          <div id="newcol">
+            <label>Nueva colección:</label>
+            <input id="col_name" type="text" class="form-control"  placeholder="Nombre...">
+            <br><input type="submit" class="btn btn-primary" value="Crear Colección">
+          </div>
+        </form>
+
+        <div id="list_col_2" class="list2"><ul></ul></div>
+
+      </div>
+      <div class="col-md-4">
+        <h4 class="title">Aparcamientos en: <span class="col_title"></span></h4>
+        <div id="list_col_3" class="list2 h_coll"><ul></ul></div>
+      </div>
+    </div>
+    <div class="tab-pane" id="alojados">
+      <div class="row">
+        <div class="col-md-4">
+          <h4 class="title">Usuarios de Google+</h4>
+          <form id="form_plus" class="form">
+            <div id="newuserid">
+              <label>Nuevo id de usuario:</label>
+              <input id="id_plus" type="text" class="form-control">
+              <br><input type="submit" class="btn btn-primary" value="Añadir id">
+            </div>
+          </form>
+          <div class="info">
+            <div id="content"></div>
+          </div>
+        </div>
+        <div class="col-md-8">
+
+          <div class="info">
+            <div id="desc2"></div>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

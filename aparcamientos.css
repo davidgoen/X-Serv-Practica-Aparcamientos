@@ -1,0 +1,145 @@
+body{
+	size:30%;
+	background-image: url(http://3.bp.blogspot.com/-jVBjg4OaISk/TXFfZFN3z3I/AAAAAAAAAHQ/fbZvcld9Dx8/s1600/parking%2Blot.png);
+}
+
+.container{
+	border-style: double;
+	border-radius: 10px;
+	background-color: #006EB6;
+}
+
+.header{
+	margin-top:20px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+h1{
+	margin-top:40px;
+	font: italic;
+	text-decoration: underline;
+	text-align: center;
+}
+
+#ctabs{
+	margin-bottom: 20px;
+	border-width: 10px;
+	background-color: #006EB6;
+	border-style: ridge;
+}
+
+#banner{
+	cursor: pointer;
+	width: 120px;
+}
+
+.main{
+	min-height: 700px;
+}
+
+#map{
+	height: 400px;
+}
+
+#desc{
+	margin-top:10px;
+	min-height: 400px;
+	margin-bottom: 10px;
+}
+#info, #desc2, #content{
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+
+#get{
+	height: 30px;
+	width: 275px;
+	margin-top: 5px;
+	text-align: center;
+}
+.list{
+	margin-top: 5px;
+	width: 275px;
+	height: 460px;
+	overflow-y: scroll;
+}
+
+#list_home li:hover,#list_col_2 li:hover, #get{
+	cursor: pointer;
+  	background-color: #08ff00;
+}
+
+#get, .list, .list2, #map, .info, .form, .title{
+	border-style: inset;
+	background-color: white;
+}
+
+#carousel{
+	width: 79%;
+	margin-left: 11%;
+	margin-bottom: 5px;
+}
+
+#carousel-imgs{
+	align-content: center;
+	margin: 0 auto;
+}
+
+#delete{
+	background-image: url(imagenes/delete.png);
+	background-repeat:no-repeat;
+	height:20px;
+	width:20px;
+	background-size:19px;
+	background-position:center;
+	float: right;
+}
+
+.list2{
+		overflow-y: scroll;
+		margin-top:10px;
+}
+#list_col_2{
+	margin-left:15px;
+	height: 320px;
+
+}
+#list_col_3{
+	height: 455px
+
+}
+#form{
+	margin-left:15px;
+}
+#newcol, #newuserid{
+	margin-top: 5px,10px,5px,10px;
+}
+
+#coll_main{
+	width: 275px;
+	height: 263px;
+	overflow-y: scroll;
+
+}
+#content, #desc2{
+	height: 500px;
+	overflow-y: scroll;
+	margin-top: 10px;
+}
+#content{
+	height: 336px;
+
+}
+
+.title, h2{
+	text-align: center;
+	text-decoration: underline;
+}
+
+h2{
+	font: italic;
+}
+
+
