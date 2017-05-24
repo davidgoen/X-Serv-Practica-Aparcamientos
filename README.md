@@ -5,4 +5,4 @@ Nombre de su cuenta en el laboratorio del alumno: dendrina
 Nombre de usuario en GitHub: davidgoen
 
 URL del video:
-<a href="https://www.youtube.com/watch?v=It3rq5ovtKY&feature=youtu.be">Ver Video</a>
+<a href="https://www.youtube.com/watch?v=EAubKQ21Zr8&feature=youtu.be">Ver Video</a>
