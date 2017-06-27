@@ -66,6 +66,13 @@ h1{
 	overflow-y: scroll;
 }
 
+.list3{
+	margin-top: 5px;
+	width: 275px;
+	height: 460px;
+	overflow-y: scroll;
+}
+
 #list_home li:hover,#list_col_2 li:hover, #get{
 	cursor: pointer;
   	background-color: #08ff00;
@@ -107,6 +114,16 @@ h1{
 
 }
 #list_col_3{
+	height: 455px
+
+}
+
+#list_col_4{
+	height: 455px
+
+}
+
+#list_col_5{
 	height: 455px
 
 }

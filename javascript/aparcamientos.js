@@ -2,6 +2,7 @@ var arrapopUp = [];
 var collection = {};
 var usuariosParking = {};
 var select = "";
+var parkingguardo;
 
 function mostrar_info(no){
     var parking = parkings[no];
@@ -34,14 +35,18 @@ function mostrar_info(no){
     })
     $("#carousel").show();
     $('#info').html('<h2>' + name +'</h2>'+ '<p>'+direc+'</p><p><h5>' + cat +'</h5></p>');
+    $(".col_title2").html(name);
     $("#desc2").html($('#info').html());
-
+    parkingguardo=name;
     //Pinta a los usuarios de Google+
     $("#content").html("");
     var id;
     usuariosParking[name].forEach(function(id){
-         makeApiCall(id,name,"none");
+        makeApiCall(id,name,"none");
     });
+    if(usuariosParking[name].length==0){
+    	 $("#list_col_5 li").remove();
+    }
 }
 
 function eliminarmarcador(lat,lon){
@@ -216,6 +221,13 @@ $(document).ready(function() {
         }
     });
 
+    $("#list_col_5").droppable({
+        drop: function( event, ui ) {
+        	$("#list_col_5").append('<li><span><img src='+ui.draggable.attr("path")+'>'+ui.draggable.text()+'</span></li>');
+        	usuariosParking[parkingguardo].push(ui.draggable.attr("no"));
+        }
+    });
+
     $( "#form" ).submit(function(event) {
         event.preventDefault();
         var new_col = $("#col_name")[0].value;
@@ -232,19 +244,39 @@ $(document).ready(function() {
 
 
     $( "#form_plus" ).submit(function(event) {
-        event.preventDefault(); //con esto no se recarga la pagina
-        var new_id = $("#id_plus")[0].value;
-        if (new_id == ""){
-            alert("Debes introducir un id")
-            return;
-        }
-        $("#id_plus")[0].value = "";
-        if (select == ""){
+        event.preventDefault(); //con esto no se recarga la pagina       
+		try {
+
+		var host = "ws://127.0.0.1:80";
+		console.log("Host:", host);
+		var s = new WebSocket(host);
+		
+		s.onopen = function (e) {
+			console.log("Socket opened.");
+		};
+		
+		s.onclose = function (e) {
+			console.log("Socket closed.");
+		};
+		
+		s.onmessage = function (e) {
+
+			if (select == ""){
             alert("Debes tener un alojamiento selecionado para asignarle un nuevo id de usuario google+")
             return; // si no esta selecionado se acaba
-        }
-        makeApiCall(new_id,select,"new");
+        	}
+        	makeApiCall(e.data,select,"new");
+		};
+		
+		s.onerror = function (e) {
+			console.log("Socket error:", e);
+		};
+		
+	} catch (ex) {
+		console.log("Socket exception:", ex);
+}
     });
+
   
 
     $( "#dialog" ).dialog({
