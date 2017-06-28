@@ -48,6 +48,7 @@ h1{
 	margin-bottom: 10px;
 }
 #info, #desc2, #content{
+	margin-top: 10px;
 	margin-left: 30px;
 	margin-right: 30px;
 }
@@ -119,12 +120,11 @@ h1{
 }
 
 #list_col_4{
-	height: 455px
-
+	height: 455px;
 }
 
 #list_col_5{
-	height: 455px
+	height: 455px;
 
 }
 #form{
